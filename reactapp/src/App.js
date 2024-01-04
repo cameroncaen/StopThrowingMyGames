@@ -1,22 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
+import "@fontsource/league-spartan";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Stop Throwing My Games
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p className="subtitle">
+          Don't get <img src="qping.png" meta="Question Mark Ping"></img>'d.
+        </p>
       </header>
     </div>
   );
