@@ -64,17 +64,23 @@ p {
 
 input {
   background-color: var(--detailtan);
-  min-width: 20px;
   height: 4vh;
+  border: 1px solid var(--detailtan);
   border-radius: 25px;
-  font-size: 3vh;
+  font-size: 2.5vh;
   font-style: italic;
   font-family: "Be Vietnam Pro";
   padding: 0px 1%;
   outline: none;
   color: #6d6d6d;
-  align-self: auto;
   order: 0;
+  align-self: auto;
+}
+
+.search-wrapper {
+  flex-flow: row nowrap;
+  background: var(--detailtan);
+  border-radius: 25px;
 }
 
 .search-container {
@@ -83,18 +89,45 @@ input {
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-content: stretch;
-  align-items: flex-start;
+  align-items: center;
+  font-size: 2.5vh;
+  font-style: italic;
+  font-family: "Be Vietnam Pro";
+  color: #6d6d6d;
 }
 
 .ID-search {
-  flex: 4 1 auto;
+  margin-left: 5px;
+  flex: 1 1 95%;
 }
 
 .tag-search {
   flex: 1 1 auto;
+  min-width: 30px;
 }
 
 .search-button {
   flex: 0 1 auto;
   order: 2;
+  border-radius: 50px;
+  background-color: var(--detailtan);
+  border: 1px solid var(--detailtan);
+  height: 4vh;
+}
+
+.search-button:hover {
+  background-color: #ddd5cb;
+  transition: 0.3s;
+}
+
+.search-line {
+  flex: 0 1 auto;
+  height: 3vh;
+  border-right: 2px solid #6d6d6d;
+  border-radius: 2px;
+  margin-right: 5px;
+}
+
+.tag-label {
+  flex: 0 1 auto;
 }

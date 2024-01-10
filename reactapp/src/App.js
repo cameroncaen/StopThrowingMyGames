@@ -17,20 +17,29 @@ function App() {
       </header>
 
       <article className="App-body">
-        <div class="search-container">
-          <form>
-            <input className="ID-search" name="summonerid" placeholder="Summoner ID" />
-            <input className="tag-search" name="summonertag" placeholder="#" />
-            <button className="search-button" type="submit">
-              <img src={search} alt="Search" width="50" height="50" />
-            </button>
-          </form>
-        </div>
+        <form>
+          <div class="search-wrapper">
+            <div class="search-container">
+              <input className="ID-search" name="summonerid" placeholder="Summoner Name" />
+              <label className="search-line" />
+              <label className="tag-label">#</label>
+              <input className="tag-search" name="summonertag" maxlength="5" />
+              <button className="search-button" type="submit">
+                <img src={search} alt="Search" width="30" height="30" />
+              </button>
+            </div>
+          </div>
+        </form>
       </article>
     </div>
   );
 }
 
 // search button does not route to correct route atm; change later
+/*
+
+
+
+*/
 
 export default App;
