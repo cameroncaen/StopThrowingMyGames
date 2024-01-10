@@ -2,12 +2,15 @@
   --bgcolor: #1d2328;
   --detailgold: #9A7B36;
   --detailblue: #1ebad5;
+  --detailtan: #ece4da;
   --containerblue: #2a2d43;
 }
 
 .App {
   text-align: center;
   background-color: var(--bgcolor);
+  font-family: "League Spartan";
+  font-weight: 550;
 }
 
 .App-logo {
@@ -22,30 +25,76 @@
 }
 
 .App-header {
-  min-height: 100vh;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: calc(65px + 2vmin);
   color: var(--detailgold);
-  font-family: "League Spartan";
-  font-weight: 550;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+/*@keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
+}*/
+
+p {
+  margin-top: 2vh;
 }
 
 .subtitle {
   font-size: calc(40px + 2vmin);
   color: white;
+}
+
+.App-body {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  background-color: var(--detailtan);
+  min-width: 20px;
+  height: 4vh;
+  border-radius: 25px;
+  font-size: 3vh;
+  font-style: italic;
+  font-family: "Be Vietnam Pro";
+  padding: 0px 1%;
+  outline: none;
+  color: #6d6d6d;
+  align-self: auto;
+  order: 0;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: flex-start;
+}
+
+.ID-search {
+  flex: 4 1 auto;
+}
+
+.tag-search {
+  flex: 1 1 auto;
+}
+
+.search-button {
+  flex: 0 1 auto;
+  order: 2;
 }
