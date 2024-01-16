@@ -6,15 +6,151 @@ body {
 }
 
 #main {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
+  background-color: var(--bgcolor);
 }
 
 #app {
   width: 100%;
   height: 100%;
+  text-align: center;
+  background-color: var(--bgcolor);
+  font-family: "League Spartan";
+  font-weight: 550;
+}
+
+:root {
+  --bgcolor: #1d2328;
+  --detailgold: #9A7B36;
+  --detailblue: #1ebad5;
+  --detailtan: #ece4da;
+  --containerblue: #2a2d43;
+}
+
+/*.Appp {
+
+}*/
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  min-height: 50vh;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(65px + 2vmin);
+  color: var(--detailgold);
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+/*@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}*/
+
+p {
+  margin-top: 2vh;
+}
+
+.subtitle {
+  font-size: calc(40px + 2vmin);
+  color: white;
+}
+
+.App-body {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  background-color: var(--detailtan);
+  height: 4vh;
+  border: 1px solid var(--detailtan);
+  border-radius: 25px;
+  font-size: 2.5vh;
+  font-style: italic;
+  font-family: "Be Vietnam Pro";
+  padding: 0px 1%;
+  outline: none;
+  color: #6d6d6d;
+  order: 0;
+  align-self: auto;
+}
+
+.search-wrapper {
+  flex-flow: row nowrap;
+  background: var(--detailtan);
+  border-radius: 25px;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: center;
+  font-size: 2.5vh;
+  font-style: italic;
+  font-family: "Be Vietnam Pro";
+  color: #6d6d6d;
+}
+
+.ID-search {
+  margin-left: 5px;
+  flex: 1 1 95%;
+}
+
+.tag-search {
+  flex: 1 1 auto;
+  min-width: 30px;
+}
+
+.search-button {
+  flex: 0 1 auto;
+  order: 2;
+  border-radius: 50px;
+  background-color: var(--detailtan);
+  border: 1px solid var(--detailtan);
+  height: 4vh;
+}
+
+.search-button:hover {
+  background-color: #ddd5cb;
+  transition: 0.3s;
+}
+
+.search-line {
+  flex: 0 1 auto;
+  height: 3vh;
+  border-right: 2px solid #6d6d6d;
+  border-radius: 2px;
+  margin-right: 5px;
+}
+
+.tag-label {
+  flex: 0 1 auto;
+}
+
+.na-only {
+  font-weight: 200;
+  font-style: italic;
+  color: white;
 }
