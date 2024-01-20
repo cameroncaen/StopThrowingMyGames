@@ -18,3 +18,12 @@ class Match(models.Model):
     username = models.CharField(max_length=16, default="")
     tag = models.CharField(max_length=5)
     created_at = models.DateTimeField(auto_now_add=True)
+
+# Main Player
+    #player stats
+
+# Main Opponent
+    #player stats
+
+# Main Matchup
+    #matchup info and blurbs
