@@ -3,5 +3,6 @@ from .views import index
 
 urlpatterns = [
     path('', index),
-    path('find', index)
+    path('find', index),
+    path('matchup/<str:matchCode>', index)
 ]

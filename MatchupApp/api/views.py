@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import generics
+from rest_framework import generics, status
 from .serializers import MatchSerializer, PopulateMatchupInfoSerializer
 from .models import Match
 from rest_framework.views import APIView
@@ -8,7 +8,7 @@ from rest_framework.response import Response
 # Create your views here.
 # using .ListApiView is for seeing the views rather than generating them
 # REACT ALLOWS FOR THE CODE TO GENERATE THESE RATHER THAN THE UI ON THE BROWSER CURRENTLY
-class MatchView(generics.CreateAPIView):
+class MatchView(generics.ListAPIView):
     # What do we want to return?
     queryset = Match.objects.all()
     # How do I convert these Match objects into a readable/usable format?
@@ -37,3 +37,25 @@ class PopulateMatchupInfo(APIView):
         if serializer.is_valid():
             username = serializer.data.get('username')
             tag = serializer.data.get('tag')
+            host = self.request.session.session_key
+            queryset = Match.objects.filter(host = host)
+            if queryset.exists():
+                match = queryset[0]
+                match.username = username
+                match.tag = tag
+                match.save(update_fields=['username', 'tag'])
+                self.request.session['match_code'] = match.code
+                 # .data returns the json formatted data from the room object in question coming
+                # from the request
+                # ALSO returns response for a stable, updated room for an existing session
+                return Response(MatchSerializer(match).data, status.HTTP_200_OK)
+            else:
+                match = Match(
+                    host = host,
+                    username = username,
+                    tag = tag
+                )
+                match.save()
+                self.request.session['match_code'] = match.code
+                return Response(MatchSerializer(match).data, status=status.HTTP_201_CREATED)
+        return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)

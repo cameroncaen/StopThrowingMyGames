@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 
-export const HomePage = () => {
+export const DisplayMatchups = () => {
     const navigate =  useNavigate();
     
     const navigateSumSearch = () => {
@@ -10,7 +10,7 @@ export const HomePage = () => {
     return (
         <div>
             <header className="App-header">
-                <h2>Stop Throwing My Games </h2>
+                <h2>Stop Throwing My Gamess </h2>
                 <a className="subtitle">Don't get 'd.</a>
             </header>
             <article className="App-body">
@@ -23,4 +23,4 @@ export const HomePage = () => {
     )
 }
 
-export default HomePage
+export default DisplayMatchups
