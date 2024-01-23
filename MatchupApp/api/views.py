@@ -22,6 +22,25 @@ class MatchView(generics.ListAPIView):
     #export models to matchup webpage
     #jump to webpage (handled outside this file)
 
+
+class GetMatchInfo(APIView):
+    serializer_class = MatchSerializer
+    lookup_url_kwarg = 'code'
+
+    def get(self, request, format=None):
+        code = request.GET.get(self.lookup_url_kwarg)
+        if code is None:
+            return Response({'Bad Request': 'Code paramater not found in request'}, status=status.HTTP_400_BAD_REQUEST)
+        try:
+            match = Match.objects.get(code=code)
+            if match:
+                data = MatchSerializer(match).data
+                return Response(data, status.HTTP_200_OK)
+            else:
+                return Response({'Match Not Found': 'Invalid match Code.'}, status=status.HTTP_404_NOT_FOUND)
+        except Match.DoesNotExist:
+            return Response({'Match Not Found': 'Invalid match Code.'}, status=status.HTTP_404_NOT_FOUND)
+
 class PopulateMatchupInfo(APIView):
     serializer_class = PopulateMatchupInfoSerializer
      

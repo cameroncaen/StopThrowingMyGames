@@ -1,12 +1,24 @@
-import React from "react";
-import { useNavigate } from 'react-router-dom';
+import React, {useState} from "react";
+import { useNavigate, useParams } from 'react-router-dom';
 
 export const DisplayMatchups = () => {
-    const navigate =  useNavigate();
+    const matchCode = useParams();
+    const [hostUser, setHostUser] = useState('');
+    const [hostTag, setHostTag] = useState('');
     
-    const navigateSumSearch = () => {
-        navigate('/find')
+    //console.log(matchCode.sessionCode);
+    const getMatchInfo = () => {
+        fetch("/api/get-stats" + "?code=" + matchCode.sessionCode)
+        .then((response) => response.json())
+        .then((data) => {
+            setHostUser(data.username)
+            setHostTag(data.tag)
+        }
+       )
     }
+
+    getMatchInfo()
+
     return (
         <div>
             <header className="App-header">
@@ -16,9 +28,13 @@ export const DisplayMatchups = () => {
             <article className="App-body">
             <button 
                 className="search-button" 
-                onClick={navigateSumSearch}
+                
             >Player Matchup Analysis </button>
+            <p>user: {matchCode.sessionCode}</p>
+            <p>user: {hostUser}</p>
+            <p>tag: {hostTag}</p>
             </article>
+            
         </div>
     )
 }

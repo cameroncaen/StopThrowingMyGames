@@ -9,7 +9,6 @@ import { useNavigate, Link } from 'react-router-dom';
 export const SumNameSearch = () => {
     const [riotId, setRiotId] = useState('');
     const [riotTag, setRiotTag] = useState('');
-    const [temp, setTemp] = useState(0)
 
     const navigate = useNavigate();
 
