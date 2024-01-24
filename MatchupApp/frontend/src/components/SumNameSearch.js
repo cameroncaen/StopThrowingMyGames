@@ -1,10 +1,9 @@
 import React, { Component, useState } from "react";
 import { useNavigate, Link } from 'react-router-dom';
+import '../../static/css/index.css'
 
-//import "@fontsource/league-spartan";
-//import "@fontsource/be-vietnam-pro";
-//import ping from '../../static/images/qping.png';
-//import search from '../../static/images/magnifyingglass.png';
+import ping from '../../static/images/qping.png';
+import search from '../../static/images/magnifyingglass.png';
 
 export const SumNameSearch = () => {
     const [riotId, setRiotId] = useState('');
@@ -40,7 +39,7 @@ export const SumNameSearch = () => {
         <div>
             <header className="App-header">
                 <h2>Stop Throwing My Games</h2>
-                <a className="subtitle">Don't get 'd.</a>
+                <a className="subtitle">Don't get <img src={ping} alt="Question Mark Ping" width="50" height="50" />'d.</a>
             </header>
 
             <article className="App-body">
@@ -70,7 +69,9 @@ export const SumNameSearch = () => {
                             className="search-button" 
                             //type="submit"
                             onClick={findMatchup}
-                        > Temp </button>
+                        >
+                            <img src={search} alt="Search" width='30' height='30' />
+                        </button>
                     </div>
                 </div>
                 <p className="na-only">Works for NA summoners only.</p>
@@ -80,10 +81,3 @@ export const SumNameSearch = () => {
 }
 
 export default SumNameSearch
-
-
-
-// these two images will be in the frontend, however image loading not working yet
-// <img src={ping} alt="Question Mark Ping" width="50" height="50" />
-// <img src={search} alt="Search" width="30" height="30" />
-// fonts also not working rn LOL
