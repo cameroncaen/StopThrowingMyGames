@@ -78,10 +78,20 @@ def findRoles(players, id):
     roles['team2'] = enemy_team
     return roles
 
+def checkValidity(username, tag):
+    try:
+        userData = GetUserInfo(username, tag)
+        
+    except:
+        return {'Bad Request': 'Invalid Playername or RiotTag'}
+    try:
+        players = GetInfoFromLiveMatch(str(userData["id"]))
+    except:
+        return {'Bad Request': 'This user is not currently in a game'}
+    return {'userData': userData, 'players': players}
 
-def generateInfo(username, tag):
-    userData = GetUserInfo(username, tag)
-    players = GetInfoFromLiveMatch(str(userData["id"]))
+
+def generateInfo(userData, players):
     #-------Match Fetched at this point and returned as list of player dictionaries----------
     roles = findRoles(players, str(userData["id"]))
     print(roles)
@@ -171,7 +181,11 @@ class PopulateMatchupInfo(APIView):
                 match.tag = tag
                 match.save(update_fields=['username', 'tag'])
                 #Beginning of generating stats------------------------------
-                matchInfo = generateInfo(username, tag)
+                validCheck = checkValidity(username, tag)
+                if 'Bad Request' in validCheck:
+                    return Response({'error': validCheck['Bad Request']}, status=status.HTTP_404_NOT_FOUND)
+                else:
+                    matchInfo = generateInfo(validCheck['userData'], validCheck['players'])
                 #user Model Fields
                 match.user_sumLevel = matchInfo['User']['sumLvl']
                 match.user_role = matchInfo['User']['role']

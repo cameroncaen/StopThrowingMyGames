@@ -8,6 +8,7 @@ import search from '../../static/images/magnifyingglass.png';
 export const SumNameSearch = () => {
     const [riotId, setRiotId] = useState('');
     const [riotTag, setRiotTag] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const navigate = useNavigate();
 
@@ -26,9 +27,18 @@ export const SumNameSearch = () => {
     function findMatchup () {
         
         fetch('/api/gen-stats', requestOptions)
-        .then((response) => response.json())
-        .then((data) => navigate('/matchup/' + data.code))
-        
+        .then((response) => {
+            if(!response.ok){
+                return response.json().then(data => {throw new Error(data.error)})
+            }else return response.json();
+        })
+        .then((data) => {
+            navigate('/matchup/' + data.code)
+        })
+        .catch((error) =>{
+            setErrorMessage(error.message)
+            console.log(error.message)
+        }) ;
         //navigate('/matchup/12345'), data)
         
        //setTemp(temp + 1)
@@ -75,6 +85,7 @@ export const SumNameSearch = () => {
                     </div>
                 </div>
                 <p className="na-only">Works for NA summoners only.</p>
+                <h1>{errorMessage}</h1>
             </article>
         </div>
     )
