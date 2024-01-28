@@ -40,19 +40,17 @@ export const DisplayMatchups = () => {
                 <hr className="matchup-title-divider"></hr>
             </header>
             <article className="matchup-body">
-                <h1 className="room-code">user: {matchCode.sessionCode}</h1>
                 <div className="main-matchup-wrapper">
                     <div className="main-matchup-user">
-                        <h1>user: {hostUser}</h1>
-                        <h1>tag: {hostTag}</h1>
-                        <h1>user level: {hostLvl}</h1>
-                        <h1>user role: {hostRole}</h1>
+                        <h1>User: {hostUser}#{hostTag}</h1>
+                        <h1>Lvl: {hostLvl}</h1>
                     </div>
-                    <div className="main-matchup-user">
-                        <h1>Opp: {oppUser}</h1>
-                        <h1>OppTag: {oppTag}</h1>
-                        <h1>Opp Level: {oppLvl}</h1>
-                        <h1>Opp Role: {oppRole}</h1>
+                    <div className="main-matchup-center">
+                        <h1>{hostRole}</h1>
+                    </div>
+                    <div className="main-matchup-opp">
+                        <h1>User: {oppUser}#{oppTag}</h1>
+                        <h1>Lvl: {oppLvl}</h1>
                     </div>
                 </div>
             </article>

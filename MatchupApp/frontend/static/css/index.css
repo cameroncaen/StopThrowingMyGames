@@ -193,10 +193,6 @@ input {
   align-items: center;
 }
 
-.room-code {
-  color: white;
-}
-
 .main-matchup-wrapper {
   width: 90vw;
   display: flex;
@@ -205,26 +201,33 @@ input {
   border-radius: 20px;
 }
 
-.main-matchup-user {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  flex: 1 1 auto;
-  justify-content: flex-start;
-  align-content: stretch;
-  align-items: center;
-  font-size: 1.5vh;
+.main-matchup-wrapper h1 {
+  margin: 5px 5px;
 }
 
 .main-matchup-user {
-  width: 50%;
+  width: 40%;
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
+  flex-flow: column nowrap;
   flex: 1 1 auto;
-  justify-content: flex-end;
-  align-content: stretch;
-  align-items: center;
+  justify-content: left;
+  align-items: start;
   font-size: 1.5vh;
+  padding-left: 5%;
+}
+
+.main-matchup-opp {
+  width: 40%;
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 1 auto;
+  justify-content: right;
+  align-items: end;
+  font-size: 1.5vh;
+  padding-right: 5%;
+}
+
+.main-matchup-center {
+  width: 20%;
+  align-items: center;
 }
