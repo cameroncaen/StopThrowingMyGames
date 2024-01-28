@@ -48,7 +48,7 @@ export const SumNameSearch = () => {
     return (
         <div>
             <header className="App-header">
-                <h2>Stop Throwing My Gamess</h2>
+                <h2>Stop Throwing My Games</h2>
                 <a className="subtitle">Don't get <img src={ping} alt="Question Mark Ping" width="50" height="50" />'d.</a>
             </header>
 

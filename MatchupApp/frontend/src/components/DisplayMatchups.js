@@ -35,20 +35,26 @@ export const DisplayMatchups = () => {
 
     return (
         <div>
-            <header className="App-header">
-                <h2>Stop Throwing My Games </h2>
-                <a className="subtitle">Don't get 'd.</a>
+            <header className="matchup-header">
+                <h2>{hostUser}'s Game</h2>
+                <hr className="matchup-title-divider"></hr>
             </header>
-            <article className="App-body">
-            <button 
-                className="search-button" 
-                
-            >Player Matchup Analysis </button>
-            <h1>user: {matchCode.sessionCode}</h1>
-            <h1>user: {hostUser}          Opp: {oppUser}</h1>
-            <h1>tag: {hostTag}          OppTag: {oppTag}</h1>
-            <h1>user level: {hostLvl}          Opp Level: {oppLvl}</h1>
-            <h1>user role: {hostRole}          Opp Role: {oppRole}</h1>
+            <article className="matchup-body">
+                <h1 className="room-code">user: {matchCode.sessionCode}</h1>
+                <div className="main-matchup-wrapper">
+                    <div className="main-matchup-user">
+                        <h1>user: {hostUser}</h1>
+                        <h1>tag: {hostTag}</h1>
+                        <h1>user level: {hostLvl}</h1>
+                        <h1>user role: {hostRole}</h1>
+                    </div>
+                    <div className="main-matchup-user">
+                        <h1>Opp: {oppUser}</h1>
+                        <h1>OppTag: {oppTag}</h1>
+                        <h1>Opp Level: {oppLvl}</h1>
+                        <h1>Opp Role: {oppRole}</h1>
+                    </div>
+                </div>
             </article>
             
         </div>
