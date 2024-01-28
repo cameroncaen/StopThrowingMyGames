@@ -180,6 +180,7 @@ class PopulateMatchupInfo(APIView):
                 match.username = username
                 match.tag = tag
                 match.save(update_fields=['username', 'tag'])
+                print('Hello')
                 #Beginning of generating stats------------------------------
                 validCheck = checkValidity(username, tag)
                 if 'Bad Request' in validCheck:
@@ -209,7 +210,11 @@ class PopulateMatchupInfo(APIView):
                 )
                 match.save()
                 #Beginning of generating stats------------------------------
-                matchInfo = generateInfo(username, tag)
+                validCheck = checkValidity(username, tag)
+                if 'Bad Request' in validCheck:
+                    return Response({'error': validCheck['Bad Request']}, status=status.HTTP_404_NOT_FOUND)
+                else:
+                    matchInfo = generateInfo(validCheck['userData'], validCheck['players'])
                 #user Model Fields
                 match.user_sumLevel = matchInfo['User']['sumLvl']
                 match.user_role = matchInfo['User']['role']

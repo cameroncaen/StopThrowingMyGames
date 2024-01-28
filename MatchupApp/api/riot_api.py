@@ -8,6 +8,7 @@ def GetUserInfo(username, tag):
     api_url = "https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/" + username + "/" + tag + "?api_key=" + riotKey
     resp = requests.get(api_url)
     user_info = resp.json()
+    #print(user_info)
     # Gets the puuid in order to be able to get more info about the summoner
     user_puuid = str(user_info['puuid'])
     summoner_url = "https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/" + user_puuid + "?api_key=" + riotKey
@@ -22,7 +23,7 @@ def GetInfoFromLiveMatch(user_id):
     resp = requests.get(live_match_url)
     match_info = resp.json()
     #delete this print after
-    print(match_info)
+    #print(match_info)
     # Gets the puuid of all the players in the game
     players_puuid = match_info['participants']
     return players_puuid
