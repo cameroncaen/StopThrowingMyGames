@@ -80,7 +80,7 @@ export const SumNameSearch = () => {
                             //type="submit"
                             onClick={findMatchup}
                         >
-                            <img src={search} alt="Search" width='30' height='30' />
+                            <img src={search} alt="Search" />
                         </button>
                     </div>
                 </div>

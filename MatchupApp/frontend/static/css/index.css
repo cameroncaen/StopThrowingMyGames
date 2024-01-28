@@ -73,6 +73,7 @@ p {
 .subtitle {
   font-size: calc(40px + 2vmin);
   color: white;
+  padding-bottom: 8vh;
 }
 
 .App-body {
@@ -138,6 +139,12 @@ input {
 .search-button:hover {
   background-color: #ddd5cb;
   transition: 0.3s;
+}
+
+.search-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .search-line {
