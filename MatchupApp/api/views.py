@@ -62,8 +62,6 @@ def findRoles(players, id):
                       players[9]['championId']]
     your_roles = get_roles(champion_roles, team1_champions)
     enemy_roles = get_roles(champion_roles, team2_champions)
-    print(your_roles)
-    print(enemy_roles)
     for x in range(5):
         champ =  players[x]['championId']   
         for role in your_roles:
@@ -77,6 +75,8 @@ def findRoles(players, id):
                 enemy_team[players[x+5]["puuid"]] = {'role': (role), 'champId': champ, 'number': x+5}
     roles['team2'] = enemy_team
     return roles
+
+
 
 def checkValidity(username, tag):
     try:
@@ -94,7 +94,7 @@ def checkValidity(username, tag):
 def generateInfo(userData, players):
     #-------Match Fetched at this point and returned as list of player dictionaries----------
     roles = findRoles(players, str(userData["id"]))
-    print(roles)
+    #print(roles)
     ally = ''
     enemy = ''
     temp = 0
@@ -114,7 +114,6 @@ def generateInfo(userData, players):
     for key in roles[enemy]:
         if roles[enemy][key]['role'] == userRole:
             oppPuuid = key
-            print("WORKS")
             break
     oppNum = roles[enemy][oppPuuid]['number']
     #-----------Lookup User Opponent to populate stats -------------------------------------------------
