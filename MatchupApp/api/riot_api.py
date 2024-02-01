@@ -42,7 +42,7 @@ def lookupSummoner(puuid):
 
 # Takes in a puuid and gets the user's match history
 def MatchHistory(puuid):
-    match_history_url = "https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/" + puuid + "/ids?start=0&count=20" + "&api_key=" + riotKey
+    match_history_url = "https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/" + puuid + "/ids?start=0&count=5" + "&api_key=" + riotKey
     resp = requests.get(match_history_url)
     match_list = resp.json()
     return match_list
