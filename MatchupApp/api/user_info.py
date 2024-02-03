@@ -4,7 +4,7 @@
 def user_RiotKey():
 
     # // PASTE YOUR RIOT API KEY HERE INBETWEEN THE QUOTATION MARKS//
-    riotKey = "RGAPI-706bccf5-50ad-4407-9a24-68a74272336e"
+    riotKey = "RGAPI-07e80fce-4285-428c-ba81-ad31686b2d8d"
     # //////////////////////////////////////////////////
 
     return riotKey

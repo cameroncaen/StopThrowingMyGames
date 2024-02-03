@@ -23,13 +23,18 @@ class Match(models.Model):
     #start of User's account/game information/stats
     user_sumLevel = models.CharField(max_length=8, default = 0)
     user_role = models.CharField(max_length=8, default = 5)
-    
+    user_kills = models.CharField(max_length=4, default = 0)
+    user_deaths = models.CharField(max_length=4, default = 0)
+    user_assists = models.CharField(max_length=4, default = 0)
     
     #start of User's Opponent account inormation/stats
     opp_username = models.CharField(max_length=16, default="")
     opp_tag = models.CharField(max_length=5, default="")
     opp_sumLevel = models.CharField(max_length=8, default = 0)
     opp_role = models.CharField(max_length=8, default = 5)
+    opp_kills = models.CharField(max_length=4, default = 0)
+    opp_deaths = models.CharField(max_length=4, default = 0)
+    opp_assists = models.CharField(max_length=4, default = 0)
 
     # -------- Ally and enemy 1 Matchup fields ----------------------------------
     #start of Ally1's account inormation/stats
@@ -37,12 +42,18 @@ class Match(models.Model):
     ally1_tag = models.CharField(max_length=5, default="")
     ally1_sumLevel = models.CharField(max_length=8, default = 0)
     ally1_role = models.CharField(max_length=8, default = 5)
+    ally1_kills = models.CharField(max_length=4, default = 0)
+    ally1_deaths = models.CharField(max_length=4, default = 0)
+    ally1_assists = models.CharField(max_length=4, default = 0)
 
     #start of Ally1's Opponent account inormation/stats
     enemy1_username = models.CharField(max_length=16, default="")
     enemy1_tag = models.CharField(max_length=5, default="")
     enemy1_sumLevel = models.CharField(max_length=8, default = 0)
     enemy1_role = models.CharField(max_length=8, default = 5)
+    enemy1_kills = models.CharField(max_length=4, default = 0)
+    enemy1_deaths = models.CharField(max_length=4, default = 0)
+    enemy1_assists = models.CharField(max_length=4, default = 0)
 
     # -------- Ally and enemy 2 Matchup fields ----------------------------------
     #start of Ally2's account inormation/stats
@@ -50,12 +61,20 @@ class Match(models.Model):
     ally2_tag = models.CharField(max_length=5, default="")
     ally2_sumLevel = models.CharField(max_length=8, default = 0)
     ally2_role = models.CharField(max_length=8, default = 5)
+    ally2_kills = models.CharField(max_length=4, default = 0)
+    ally2_deaths = models.CharField(max_length=4, default = 0)
+    ally2_assists = models.CharField(max_length=4, default = 0)
 
     #start of Ally2's Opponent account inormation/stats
     enemy2_username = models.CharField(max_length=16, default="")
     enemy2_tag = models.CharField(max_length=5, default="")
     enemy2_sumLevel = models.CharField(max_length=8, default = 0)
     enemy2_role = models.CharField(max_length=8, default = 5)
+    enemy2_kills = models.CharField(max_length=4, default = 0)
+    enemy2_deaths = models.CharField(max_length=4, default = 0)
+    enemy2_assists = models.CharField(max_length=4, default = 0)
+
+    
 
     # -------- Ally and enemy 3 Matchup fields ----------------------------------
     #start of Ally3's account inormation/stats
@@ -63,12 +82,19 @@ class Match(models.Model):
     ally3_tag = models.CharField(max_length=5, default="")
     ally3_sumLevel = models.CharField(max_length=8, default = 0)
     ally3_role = models.CharField(max_length=8, default = 5)
+    ally3_kills = models.CharField(max_length=4, default = 0)
+    ally3_deaths = models.CharField(max_length=4, default = 0)
+    ally3_assists = models.CharField(max_length=4, default = 0)
 
     #start of Ally3's Opponent account inormation/stats
     enemy3_username = models.CharField(max_length=16, default="")
     enemy3_tag = models.CharField(max_length=5, default="")
     enemy3_sumLevel = models.CharField(max_length=8, default = 0)
     enemy3_role = models.CharField(max_length=8, default = 5)
+    enemy3_kills = models.CharField(max_length=4, default = 0)
+    enemy3_deaths = models.CharField(max_length=4, default = 0)
+    enemy3_assists = models.CharField(max_length=4, default = 0)
+
 
     # -------- Ally and enemy 4 Matchup fields ----------------------------------
     #start of Ally4's account inormation/stats
@@ -76,9 +102,16 @@ class Match(models.Model):
     ally4_tag = models.CharField(max_length=5, default="")
     ally4_sumLevel = models.CharField(max_length=8, default = 0)
     ally4_role = models.CharField(max_length=8, default = 5)
+    ally4_kills = models.CharField(max_length=4, default = 0)
+    ally4_deaths = models.CharField(max_length=4, default = 0)
+    ally4_assists = models.CharField(max_length=4, default = 0)
 
     #start of Ally4's Opponent account inormation/stats
     enemy4_username = models.CharField(max_length=16, default="")
     enemy4_tag = models.CharField(max_length=5, default="")
     enemy4_sumLevel = models.CharField(max_length=8, default = 0)
     enemy4_role = models.CharField(max_length=8, default = 5)
+    enemy4_kills = models.CharField(max_length=4, default = 0)
+    enemy4_deaths = models.CharField(max_length=4, default = 0)
+    enemy4_assists = models.CharField(max_length=4, default = 0)
+

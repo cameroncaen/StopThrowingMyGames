@@ -179,18 +179,20 @@ def generateInfo(userData, players):
     for lane in allRoles:
         if lane == userRole:
             print('HERE')
-            #allMatchData['User']['stats'] = pullMatchData(userPuuid, lane)
-            #allMatchData['UserOpp']['stats'] = pullMatchData(userOppPuuid, lane)
+            allMatchData['User']['stats'] = pullMatchData(userPuuid, lane, roles[ally][userPuuid]['champId'], 2)
+            print(allMatchData['User']['stats'])
+            allMatchData['UserOpp']['stats'] = pullMatchData(userOppPuuid, lane, roles[enemy][userOppPuuid]['champId'], 1)
+            print(allMatchData['UserOpp']['stats'])
         else:
             for key in roles[ally]:
                 if roles[ally][key]['role'] == lane:
                     allyPuuid = key
-                    allMatchData['AltLane'+str(count)]= pullMatchData(allyPuuid, lane)
+                    allMatchData['AltLane'+str(count)]= pullMatchData(allyPuuid, lane, roles[ally][key]['champId'], 0)
                     break
             for key in roles[enemy]:
                 if roles[enemy][key]['role'] == lane:
                     oppPuuid = key
-                    allMatchData['AltLaneOpp'+str(count)] = pullMatchData(oppPuuid, lane)
+                    allMatchData['AltLaneOpp'+str(count)] = pullMatchData(oppPuuid, lane, roles[enemy][key]['champId'], 0)
                     break
             count += 1
 
@@ -227,61 +229,100 @@ class PopulateMatchupInfo(APIView):
                 #user Model Fields ---------------------------
                 match.user_sumLevel = matchInfo['User']['sumLvl']
                 match.user_role = matchInfo['User']['role']
-                match.save(update_fields=['user_sumLevel', 'user_role'])
+                match.user_kills = matchInfo['User']['stats']['kills']
+                match.user_deaths = matchInfo['User']['stats']['deaths']
+                match.user_assists = matchInfo['User']['stats']['assists']
+                match.save(update_fields=['user_sumLevel', 'user_role', 'user_kills', 'user_deaths', 'user_assists'])
                 #Opp Model Fields
                 match.opp_username = matchInfo['UserOpp']['username']
                 match.opp_tag = matchInfo['UserOpp']['tagline']
                 match.opp_sumLevel = matchInfo['UserOpp']['sumLvl']
                 match.opp_role = matchInfo['UserOpp']['role']
-                match.save(update_fields=['opp_username', 'opp_tag', 'opp_sumLevel','opp_role'])
+                match.opp_kills = matchInfo['UserOpp']['stats']['kills']
+                match.opp_deaths = matchInfo['UserOpp']['stats']['deaths']
+                match.opp_assists = matchInfo['UserOpp']['stats']['assists']
+                match.save(update_fields=['opp_username', 'opp_tag', 'opp_sumLevel','opp_role', 'opp_kills', 'opp_deaths', 'opp_assists',
+                                          ])
                 #Ally1 Model Fields -----------------------------
                 match.ally1_username = matchInfo['AltLane1']['username']
                 match.ally1_tag = matchInfo['AltLane1'] ['role']
                 match.ally1_sumLevel = matchInfo['AltLane1']['sumLvl']
                 match.ally1_role = matchInfo['AltLane1']['role']
-                match.save(update_fields=['ally1_username', 'ally1_tag', 'ally1_sumLevel','ally1_role'])
+                match.ally1_kills = matchInfo['AltLane1']['stats']['kills']
+                match.ally1_deaths = matchInfo['AltLane1']['stats']['deaths']
+                match.ally1_assists = matchInfo['AltLane1']['stats']['assists']
+                match.save(update_fields=['ally1_username', 'ally1_tag', 'ally1_sumLevel','ally1_role', 'ally1_kills', 'ally1_deaths', 'ally1_assists'
+                                          ])
                 #Enemy1 Model Fields
                 match.enemy1_username = matchInfo['AltLaneOpp1']['username']
                 match.enemy1_tag = matchInfo['AltLaneOpp1']['tagline']
                 match.enemy1_sumLevel = matchInfo['AltLaneOpp1']['sumLvl']
                 match.enemy1_role = matchInfo['AltLaneOpp1']['role']
-                match.save(update_fields=['enemy1_username', 'enemy1_tag', 'enemy1_sumLevel','enemy1_role'])
+                match.enemy1_kills = matchInfo['AltLaneOpp1']['stats']['kills']
+                match.enemy1_deaths = matchInfo['AltLaneOpp1']['stats']['deaths']
+                match.enemy1_assists = matchInfo['AltLaneOpp1']['stats']['assists']
+                match.save(update_fields=['enemy1_username', 'enemy1_tag', 'enemy1_sumLevel','enemy1_role', 'enemy1_kills', 'enemy1_deaths', 'enemy1_assists'
+                                          ])
                 #Ally2 Model Fields -----------------------------
                 match.ally2_username = matchInfo['AltLane2']['username']
                 match.ally2_tag = matchInfo['AltLane2'] ['role']
                 match.ally2_sumLevel = matchInfo['AltLane2']['sumLvl']
                 match.ally2_role = matchInfo['AltLane2']['role']
-                match.save(update_fields=['ally2_username', 'ally2_tag', 'ally2_sumLevel','ally2_role'])
+                match.ally2_kills = matchInfo['AltLane2']['stats']['kills']
+                match.ally2_deaths = matchInfo['AltLane2']['stats']['deaths']
+                match.ally2_assists = matchInfo['AltLane2']['stats']['assists']
+                match.save(update_fields=['ally2_username', 'ally2_tag', 'ally2_sumLevel','ally2_role', 'ally2_kills', 'ally2_deaths', 'ally2_assists'
+                                          ])
                 #Enemy2 Model Fields
                 match.enemy2_username = matchInfo['AltLaneOpp2']['username']
                 match.enemy2_tag = matchInfo['AltLaneOpp2']['tagline']
                 match.enemy2_sumLevel = matchInfo['AltLaneOpp2']['sumLvl']
                 match.enemy2_role = matchInfo['AltLaneOpp2']['role']
-                match.save(update_fields=['enemy2_username', 'enemy2_tag', 'enemy2_sumLevel','enemy2_role'])
+                match.enemy2_kills = matchInfo['AltLaneOpp2']['stats']['kills']
+                match.enemy2_deaths = matchInfo['AltLaneOpp2']['stats']['deaths']
+                match.enemy2_assists = matchInfo['AltLaneOpp2']['stats']['assists']
+                match.save(update_fields=['enemy2_username', 'enemy2_tag', 'enemy2_sumLevel','enemy2_role', 'enemy2_kills', 'enemy2_deaths', 'enemy2_assists'
+                                          ])
                 #Ally3 Model Fields -----------------------------
                 match.ally3_username = matchInfo['AltLane3']['username']
                 match.ally3_tag = matchInfo['AltLane3'] ['role']
                 match.ally3_sumLevel = matchInfo['AltLane3']['sumLvl']
                 match.ally3_role = matchInfo['AltLane3']['role']
-                match.save(update_fields=['ally3_username', 'ally3_tag', 'ally3_sumLevel','ally3_role'])
+                match.ally3_kills = matchInfo['AltLane3']['stats']['kills']
+                match.ally3_deaths = matchInfo['AltLane3']['stats']['deaths']
+                match.ally3_assists = matchInfo['AltLane3']['stats']['assists']
+                match.save(update_fields=['ally3_username', 'ally3_tag', 'ally3_sumLevel','ally3_role', 'ally3_kills', 'ally3_deaths', 'ally3_assists'
+                                          ])
                 #Enemy3 Model Fields
                 match.enemy3_username = matchInfo['AltLaneOpp3']['username']
                 match.enemy3_tag = matchInfo['AltLaneOpp3']['tagline']
                 match.enemy3_sumLevel = matchInfo['AltLaneOpp3']['sumLvl']
                 match.enemy3_role = matchInfo['AltLaneOpp3']['role']
-                match.save(update_fields=['enemy3_username', 'enemy3_tag', 'enemy3_sumLevel','enemy3_role'])
+                match.enemy3_kills = matchInfo['AltLaneOpp3']['stats']['kills']
+                match.enemy3_deaths = matchInfo['AltLaneOpp3']['stats']['deaths']
+                match.enemy3_assists = matchInfo['AltLaneOpp3']['stats']['assists']
+                match.save(update_fields=['enemy3_username', 'enemy3_tag', 'enemy3_sumLevel','enemy3_role', 'enemy3_kills', 'enemy3_deaths', 'enemy3_assists'
+                                          ])
                 #Ally4 Model Fields -----------------------------
                 match.ally4_username = matchInfo['AltLane4']['username']
                 match.ally4_tag = matchInfo['AltLane4'] ['role']
                 match.ally4_sumLevel = matchInfo['AltLane4']['sumLvl']
                 match.ally4_role = matchInfo['AltLane4']['role']
-                match.save(update_fields=['ally4_username', 'ally4_tag', 'ally4_sumLevel','ally4_role'])
+                match.ally4_kills = matchInfo['AltLane4']['stats']['kills']
+                match.ally4_deaths = matchInfo['AltLane4']['stats']['deaths']
+                match.ally4_assists = matchInfo['AltLane4']['stats']['assists']
+                match.save(update_fields=['ally4_username', 'ally4_tag', 'ally4_sumLevel','ally4_role', 'ally4_kills', 'ally4_deaths', 'ally4_assists'
+                                          ])
                 #Enemy4 Model Fields
                 match.enemy4_username = matchInfo['AltLaneOpp4']['username']
                 match.enemy4_tag = matchInfo['AltLaneOpp4']['tagline']
                 match.enemy4_sumLevel = matchInfo['AltLaneOpp4']['sumLvl']
                 match.enemy4_role = matchInfo['AltLaneOpp4']['role']
-                match.save(update_fields=['enemy4_username', 'enemy4_tag', 'enemy4_sumLevel','enemy4_role'])
+                match.enemy4_kills = matchInfo['AltLaneOpp4']['stats']['kills']
+                match.enemy4_deaths = matchInfo['AltLaneOpp4']['stats']['deaths']
+                match.enemy4_assists = matchInfo['AltLaneOpp4']['stats']['assists']
+                match.save(update_fields=['enemy4_username', 'enemy4_tag', 'enemy4_sumLevel','enemy4_role', 'enemy4_kills', 'enemy4_deaths', 'enemy4_assists'
+                                          ])
 
 
 
