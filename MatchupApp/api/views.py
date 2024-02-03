@@ -245,7 +245,7 @@ class PopulateMatchupInfo(APIView):
                                           ])
                 #Ally1 Model Fields -----------------------------
                 match.ally1_username = matchInfo['AltLane1']['username']
-                match.ally1_tag = matchInfo['AltLane1'] ['role']
+                match.ally1_tag = matchInfo['AltLane1'] ['tagline']
                 match.ally1_sumLevel = matchInfo['AltLane1']['sumLvl']
                 match.ally1_role = matchInfo['AltLane1']['role']
                 match.ally1_kills = matchInfo['AltLane1']['stats']['kills']
@@ -265,7 +265,7 @@ class PopulateMatchupInfo(APIView):
                                           ])
                 #Ally2 Model Fields -----------------------------
                 match.ally2_username = matchInfo['AltLane2']['username']
-                match.ally2_tag = matchInfo['AltLane2'] ['role']
+                match.ally2_tag = matchInfo['AltLane2'] ['tagline']
                 match.ally2_sumLevel = matchInfo['AltLane2']['sumLvl']
                 match.ally2_role = matchInfo['AltLane2']['role']
                 match.ally2_kills = matchInfo['AltLane2']['stats']['kills']
@@ -285,7 +285,7 @@ class PopulateMatchupInfo(APIView):
                                           ])
                 #Ally3 Model Fields -----------------------------
                 match.ally3_username = matchInfo['AltLane3']['username']
-                match.ally3_tag = matchInfo['AltLane3'] ['role']
+                match.ally3_tag = matchInfo['AltLane3'] ['tagline']
                 match.ally3_sumLevel = matchInfo['AltLane3']['sumLvl']
                 match.ally3_role = matchInfo['AltLane3']['role']
                 match.ally3_kills = matchInfo['AltLane3']['stats']['kills']
@@ -305,7 +305,7 @@ class PopulateMatchupInfo(APIView):
                                           ])
                 #Ally4 Model Fields -----------------------------
                 match.ally4_username = matchInfo['AltLane4']['username']
-                match.ally4_tag = matchInfo['AltLane4'] ['role']
+                match.ally4_tag = matchInfo['AltLane4'] ['tagline']
                 match.ally4_sumLevel = matchInfo['AltLane4']['sumLvl']
                 match.ally4_role = matchInfo['AltLane4']['role']
                 match.ally4_kills = matchInfo['AltLane4']['stats']['kills']

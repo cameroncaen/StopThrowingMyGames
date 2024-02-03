@@ -207,74 +207,75 @@ export const DisplayMatchups = () => {
                         <h1>KDA: {oppKills}/{oppDeaths}/{oppAssists}</h1>
                     </div>
                 </div>
-            </article>
-            <article className="matchup-body">
-                <div className="main-matchup-wrapper">
-                    <div className="main-matchup-user">
-                        <h1>User: {ally1User}#{ally1Tag}</h1>
-                        <h1>Lvl: {ally1Lvl}</h1>
-                        <h1>KDA: {ally1Kills}/{ally1Deaths}/{ally1Assists}</h1>
+
+                <div className="sub-matchup-row">
+                    <div className="sub-matchup-wrapper">
+                        <div className="sub-matchup-user">
+                            <h1>User: {ally1User}#{ally1Tag}</h1>
+                            <h1>Lvl: {ally1Lvl}</h1>
+                            <h1>KDA: {ally1Kills}/{ally1Deaths}/{ally1Assists}</h1>
+                        </div>
+                        <div className="sub-matchup-center">
+                            <h1>{ally1Role}</h1>
+                        </div>
+                        <div className="sub-matchup-opp">
+                            <h1>User: {enemy1User}#{enemy1Tag}</h1>
+                            <h1>Lvl: {enemy1Lvl}</h1>
+                            <h1>KDA: {enemy1Kills}/{enemy1Deaths}/{enemy1Assists}</h1>
+                        </div>
                     </div>
-                    <div className="main-matchup-center">
-                        <h1>{ally1Role}</h1>
-                    </div>
-                    <div className="main-matchup-opp">
-                        <h1>User: {enemy1User}#{enemy1Tag}</h1>
-                        <h1>Lvl: {enemy1Lvl}</h1>
-                        <h1>KDA: {enemy1Kills}/{enemy1Deaths}/{enemy1Assists}</h1>
-                    </div>
-                </div>
-            </article>
-            <article className="matchup-body">
-                <div className="main-matchup-wrapper">
-                    <div className="main-matchup-user">
-                        <h1>User: {ally2User}#{ally2Tag}</h1>
-                        <h1>Lvl: {ally2Lvl}</h1>
-                        <h1>KDA: {ally2Kills}/{ally2Deaths}/{ally2Assists}</h1>
-                    </div>
-                    <div className="main-matchup-center">
-                        <h1>{ally2Role}</h1>
-                    </div>
-                    <div className="main-matchup-opp">
-                        <h1>User: {enemy2User}#{enemy2Tag}</h1>
-                        <h1>Lvl: {enemy2Lvl}</h1>
-                        <h1>KDA: {enemy2Kills}/{enemy2Deaths}/{enemy2Assists}</h1>
-                    </div>
-                </div>
-            </article><article className="matchup-body">
-                <div className="main-matchup-wrapper">
-                    <div className="main-matchup-user">
-                        <h1>User: {ally3User}#{ally3Tag}</h1>
-                        <h1>Lvl: {ally3Lvl}</h1>
-                        <h1>KDA: {ally3Kills}/{ally3Deaths}/{ally3Assists}</h1>
-                    </div>
-                    <div className="main-matchup-center">
-                        <h1>{ally3Role}</h1>
-                    </div>
-                    <div className="main-matchup-opp">
-                        <h1>User: {enemy3User}#{enemy3Tag}</h1>
-                        <h1>Lvl: {enemy3Lvl}</h1>
-                        <h1>KDA: {enemy3Kills}/{enemy3Deaths}/{enemy3Assists}</h1>
+
+                    <div className="sub-matchup-wrapper">
+                        <div className="sub-matchup-user">
+                            <h1>User: {ally2User}#{ally2Tag}</h1>
+                            <h1>Lvl: {ally2Lvl}</h1>
+                            <h1>KDA: {ally2Kills}/{ally2Deaths}/{ally2Assists}</h1>
+                        </div>
+                        <div className="sub-matchup-center">
+                            <h1>{ally2Role}</h1>
+                        </div>
+                        <div className="sub-matchup-opp">
+                            <h1>User: {enemy2User}#{enemy2Tag}</h1>
+                            <h1>Lvl: {enemy2Lvl}</h1>
+                            <h1>KDA: {enemy2Kills}/{enemy2Deaths}/{enemy2Assists}</h1>
+                        </div>
                     </div>
                 </div>
-            </article><article className="matchup-body">
-                <div className="main-matchup-wrapper">
-                    <div className="main-matchup-user">
-                        <h1>User: {ally4User}#{ally4Tag}</h1>
-                        <h1>Lvl: {ally4Lvl}</h1>
-                        <h1>KDA: {ally4Kills}/{ally4Deaths}/{ally4Assists}</h1>
+
+                <div className="sub-matchup-row">
+                    <div className="sub-matchup-wrapper">
+                        <div className="sub-matchup-user">
+                            <h1>User: {ally3User}#{ally3Tag}</h1>
+                            <h1>Lvl: {ally3Lvl}</h1>
+                            <h1>KDA: {ally3Kills}/{ally3Deaths}/{ally3Assists}</h1>
+                        </div>
+                        <div className="sub-matchup-center">
+                            <h1>{ally3Role}</h1>
+                        </div>
+                        <div className="sub-matchup-opp">
+                            <h1>User: {enemy3User}#{enemy3Tag}</h1>
+                            <h1>Lvl: {enemy3Lvl}</h1>
+                            <h1>KDA: {enemy3Kills}/{enemy3Deaths}/{enemy3Assists}</h1>
+                        </div>
                     </div>
-                    <div className="main-matchup-center">
-                        <h1>{ally4Role}</h1>
-                    </div>
-                    <div className="main-matchup-opp">
-                        <h1>User: {enemy4User}#{enemy4Tag}</h1>
-                        <h1>Lvl: {enemy4Lvl}</h1>
-                        <h1>KDA: {enemy4Kills}/{enemy4Deaths}/{enemy4Assists}</h1>
+                    
+                    <div className="sub-matchup-wrapper">
+                        <div className="sub-matchup-user">
+                            <h1>User: {ally4User}#{ally4Tag}</h1>
+                            <h1>Lvl: {ally4Lvl}</h1>
+                            <h1>KDA: {ally4Kills}/{ally4Deaths}/{ally4Assists}</h1>
+                        </div>
+                        <div className="sub-matchup-center">
+                            <h1>{ally4Role}</h1>
+                        </div>
+                        <div className="sub-matchup-opp">
+                            <h1>User: {enemy4User}#{enemy4Tag}</h1>
+                            <h1>Lvl: {enemy4Lvl}</h1>
+                            <h1>KDA: {enemy4Kills}/{enemy4Deaths}/{enemy4Assists}</h1>
+                        </div>
                     </div>
                 </div>
-            </article>
-            
+            </article>            
         </div>
     )
 }

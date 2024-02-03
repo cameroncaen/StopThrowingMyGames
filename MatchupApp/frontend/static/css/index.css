@@ -199,6 +199,7 @@ input {
   flex-flow: row nowrap;
   background: var(--detailtan);
   border-radius: 20px;
+  margin: 5px;
 }
 
 .main-matchup-wrapper h1 {
@@ -229,5 +230,50 @@ input {
 
 .main-matchup-center {
   width: 20%;
+  align-items: center;
+}
+
+.sub-matchup-row {
+  display: flex;
+  font-size: 1.2vh;
+}
+
+.sub-matchup-wrapper {
+  width: 44.5vw;
+  display: flex;
+  flex-flow: row nowrap;
+  background: var(--detailtan);
+  border-radius: 20px;
+  margin: .5vw;
+}
+
+.sub-matchup-wrapper h1 {
+  margin: 5px 5px;
+}
+
+.sub-matchup-user {
+  width: 40%;
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 1 auto;
+  justify-content: left;
+  align-items: start;
+  font-size: 1.2vh;
+  padding-left: 5%;
+}
+
+.sub-matchup-opp {
+  width: 40%;
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 1 auto;
+  justify-content: right;
+  align-items: end;
+  font-size: 1.2vh;
+  padding-right: 5%;
+}
+
+.sub-matchup-center {
+  width: 10%;
   align-items: center;
 }
