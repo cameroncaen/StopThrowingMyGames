@@ -180,7 +180,6 @@ def generateInfo(userData, players):
             allMatchData['User']['stats'] = pullMatchData(userPuuid, lane, roles[ally][userPuuid]['champId'], 2)
             allMatchData['UserOpp'] = pullMatchData(userOppPuuid, lane, roles[enemy][userOppPuuid]['champId'], 1)
             allMatchData['UserLaneBlurbs'] = genBlurbs(allMatchData['User']['stats'], allMatchData['UserOpp']['stats'], lane)
-            print( allMatchData['UserLaneBlurbs'])
         else:
             for key in roles[ally]:
                 if roles[ally][key]['role'] == lane:
@@ -193,7 +192,6 @@ def generateInfo(userData, players):
                     allMatchData['AltLaneOpp'+str(count)] = pullMatchData(oppPuuid, lane, roles[enemy][key]['champId'], 0)
                     break
             allMatchData['AltLane'+str(count)+'Blurbs'] = genBlurbs(allMatchData['AltLane'+str(count)]['stats'], allMatchData['AltLaneOpp'+str(count)]['stats'], lane)
-            print( allMatchData['AltLane'+str(count)+'Blurbs'])
             count += 1
 
     return allMatchData
