@@ -53,9 +53,3 @@ def MatchData(match_id):
     resp = requests.get(match_url)
     match_data = resp.json()
     return match_data
-
-    # NOTEWORTHY STATS
-        # LITERAL STATS
-            
-        # INFERRED STATS
-            #['firstTurretKill']

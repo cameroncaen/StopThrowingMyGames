@@ -26,6 +26,12 @@ class Match(models.Model):
     user_kills = models.CharField(max_length=4, default = 0)
     user_deaths = models.CharField(max_length=4, default = 0)
     user_assists = models.CharField(max_length=4, default = 0)
+    user_wardsPlaced = models.CharField(max_length=4, default = 0)
+    user_wardsKilled = models.CharField(max_length=4, default = 0)
+    user_VWBought = models.CharField(max_length=4, default = 0)
+    user_KP = models.CharField(max_length=4, default = 0)
+    user_GPM = models.CharField(max_length=4, default = 0)
+    user_DPM = models.CharField(max_length=4, default = 0)
     
     #start of User's Opponent account inormation/stats
     opp_username = models.CharField(max_length=16, default="")
@@ -35,6 +41,12 @@ class Match(models.Model):
     opp_kills = models.CharField(max_length=4, default = 0)
     opp_deaths = models.CharField(max_length=4, default = 0)
     opp_assists = models.CharField(max_length=4, default = 0)
+    opp_wardsPlaced = models.CharField(max_length=4, default = 0)
+    opp_wardsKilled = models.CharField(max_length=4, default = 0)
+    opp_VWBought = models.CharField(max_length=4, default = 0)
+    opp_KP = models.CharField(max_length=4, default = 0)
+    opp_GPM = models.CharField(max_length=4, default = 0)
+    opp_DPM = models.CharField(max_length=4, default = 0)
 
     # -------- Ally and enemy 1 Matchup fields ----------------------------------
     #start of Ally1's account inormation/stats
@@ -45,6 +57,12 @@ class Match(models.Model):
     ally1_kills = models.CharField(max_length=4, default = 0)
     ally1_deaths = models.CharField(max_length=4, default = 0)
     ally1_assists = models.CharField(max_length=4, default = 0)
+    ally1_wardsPlaced = models.CharField(max_length=4, default = 0)
+    ally1_wardsKilled = models.CharField(max_length=4, default = 0)
+    ally1_VWBought = models.CharField(max_length=4, default = 0)
+    ally1_KP = models.CharField(max_length=4, default = 0)
+    ally1_GPM = models.CharField(max_length=4, default = 0)
+    ally1_DPM = models.CharField(max_length=4, default = 0)
 
     #start of Ally1's Opponent account inormation/stats
     enemy1_username = models.CharField(max_length=16, default="")
@@ -54,6 +72,12 @@ class Match(models.Model):
     enemy1_kills = models.CharField(max_length=4, default = 0)
     enemy1_deaths = models.CharField(max_length=4, default = 0)
     enemy1_assists = models.CharField(max_length=4, default = 0)
+    enemy1_wardsPlaced = models.CharField(max_length=4, default = 0)
+    enemy1_wardsKilled = models.CharField(max_length=4, default = 0)
+    enemy1_VWBought = models.CharField(max_length=4, default = 0)
+    enemy1_KP = models.CharField(max_length=4, default = 0)
+    enemy1_GPM = models.CharField(max_length=4, default = 0)
+    enemy1_DPM = models.CharField(max_length=4, default = 0)
 
     # -------- Ally and enemy 2 Matchup fields ----------------------------------
     #start of Ally2's account inormation/stats
@@ -64,6 +88,13 @@ class Match(models.Model):
     ally2_kills = models.CharField(max_length=4, default = 0)
     ally2_deaths = models.CharField(max_length=4, default = 0)
     ally2_assists = models.CharField(max_length=4, default = 0)
+    ally2_wardsPlaced = models.CharField(max_length=4, default = 0)
+    ally2_wardsKilled = models.CharField(max_length=4, default = 0)
+    ally2_VWBought = models.CharField(max_length=4, default = 0)
+    ally2_KP = models.CharField(max_length=4, default = 0)
+    ally2_GPM = models.CharField(max_length=4, default = 0)
+    ally2_DPM = models.CharField(max_length=4, default = 0)
+    
 
     #start of Ally2's Opponent account inormation/stats
     enemy2_username = models.CharField(max_length=16, default="")
@@ -73,6 +104,12 @@ class Match(models.Model):
     enemy2_kills = models.CharField(max_length=4, default = 0)
     enemy2_deaths = models.CharField(max_length=4, default = 0)
     enemy2_assists = models.CharField(max_length=4, default = 0)
+    enemy2_wardsPlaced = models.CharField(max_length=4, default = 0)
+    enemy2_wardsKilled = models.CharField(max_length=4, default = 0)
+    enemy2_VWBought = models.CharField(max_length=4, default = 0)
+    enemy2_KP = models.CharField(max_length=4, default = 0)
+    enemy2_GPM = models.CharField(max_length=4, default = 0)
+    enemy2_DPM = models.CharField(max_length=4, default = 0)
 
     
 
@@ -85,6 +122,12 @@ class Match(models.Model):
     ally3_kills = models.CharField(max_length=4, default = 0)
     ally3_deaths = models.CharField(max_length=4, default = 0)
     ally3_assists = models.CharField(max_length=4, default = 0)
+    ally3_wardsPlaced = models.CharField(max_length=4, default = 0)
+    ally3_wardsKilled = models.CharField(max_length=4, default = 0)
+    ally3_VWBought = models.CharField(max_length=4, default = 0)
+    ally3_KP = models.CharField(max_length=4, default = 0)
+    ally3_GPM = models.CharField(max_length=4, default = 0)
+    ally3_DPM = models.CharField(max_length=4, default = 0)
 
     #start of Ally3's Opponent account inormation/stats
     enemy3_username = models.CharField(max_length=16, default="")
@@ -94,6 +137,12 @@ class Match(models.Model):
     enemy3_kills = models.CharField(max_length=4, default = 0)
     enemy3_deaths = models.CharField(max_length=4, default = 0)
     enemy3_assists = models.CharField(max_length=4, default = 0)
+    enemy3_wardsPlaced = models.CharField(max_length=4, default = 0)
+    enemy3_wardsKilled = models.CharField(max_length=4, default = 0)
+    enemy3_VWBought = models.CharField(max_length=4, default = 0)
+    enemy3_KP = models.CharField(max_length=4, default = 0)
+    enemy3_GPM = models.CharField(max_length=4, default = 0)
+    enemy3_DPM = models.CharField(max_length=4, default = 0)
 
 
     # -------- Ally and enemy 4 Matchup fields ----------------------------------
@@ -105,6 +154,12 @@ class Match(models.Model):
     ally4_kills = models.CharField(max_length=4, default = 0)
     ally4_deaths = models.CharField(max_length=4, default = 0)
     ally4_assists = models.CharField(max_length=4, default = 0)
+    ally4_wardsPlaced = models.CharField(max_length=4, default = 0)
+    ally4_wardsKilled = models.CharField(max_length=4, default = 0)
+    ally4_VWBought = models.CharField(max_length=4, default = 0)
+    ally4_KP = models.CharField(max_length=4, default = 0)
+    ally4_GPM = models.CharField(max_length=4, default = 0)
+    ally4_DPM = models.CharField(max_length=4, default = 0)
 
     #start of Ally4's Opponent account inormation/stats
     enemy4_username = models.CharField(max_length=16, default="")
@@ -114,4 +169,10 @@ class Match(models.Model):
     enemy4_kills = models.CharField(max_length=4, default = 0)
     enemy4_deaths = models.CharField(max_length=4, default = 0)
     enemy4_assists = models.CharField(max_length=4, default = 0)
+    enemy4_wardsPlaced = models.CharField(max_length=4, default = 0)
+    enemy4_wardsKilled = models.CharField(max_length=4, default = 0)
+    enemy4_VWBought = models.CharField(max_length=4, default = 0)
+    enemy4_KP = models.CharField(max_length=4, default = 0)
+    enemy4_GPM = models.CharField(max_length=4, default = 0)
+    enemy4_DPM = models.CharField(max_length=4, default = 0)
 
