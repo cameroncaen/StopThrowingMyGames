@@ -73,6 +73,7 @@ p {
 .subtitle {
   font-size: calc(40px + 2vmin);
   color: white;
+  padding-bottom: 8vh;
 }
 
 .App-body {
@@ -140,6 +141,12 @@ input {
   transition: 0.3s;
 }
 
+.search-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .search-line {
   flex: 0 1 auto;
   height: 3vh;
@@ -156,4 +163,131 @@ input {
   font-weight: 200;
   font-style: italic;
   color: white;
+}
+
+.matchup-header {
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: normal;
+}
+
+.matchup-header h2 {
+  display: flex;
+  justify-content: left;
+  font-size: calc(45px + 2vmin);
+  color: var(--detailgold);
+  margin: 20px 0 10px 5vw;
+}
+
+.matchup-title-divider {
+  width: 95vw;
+  margin-left: 4vw;
+  border: 2px solid var(--detailgold);
+}
+
+.matchup-body {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-matchup-wrapper {
+  width: 90vw;
+  display: flex;
+  flex-flow: row nowrap;
+  background: var(--detailtan);
+  border-radius: 20px;
+  margin: 5px;
+}
+
+.main-matchup-wrapper h1 {
+  margin: 5px 5px;
+}
+
+.main-matchup-user {
+  width: 40%;
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 1 auto;
+  justify-content: left;
+  align-items: start;
+  font-size: 1.5vh;
+  padding-left: 5%;
+}
+
+.main-matchup-opp {
+  width: 40%;
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 1 auto;
+  justify-content: right;
+  align-items: end;
+  font-size: 1.5vh;
+  padding-right: 5%;
+}
+
+.main-matchup-center {
+  width: 20%;
+  align-items: center;
+}
+.main-matchup-blurbs {
+  width: 70%;
+  align-items: center;
+}
+
+.sub-matchup-row {
+  display: flex;
+  font-size: 1.2vh;
+}
+
+.sub-matchup-wrapper {
+  width: 44.5vw;
+  display: flex;
+  flex-flow: row nowrap;
+  background: var(--detailtan);
+  border-radius: 20px;
+  margin: .5vw;
+}
+
+.sub-matchup-wrapper h1 {
+  margin: 5px 5px;
+}
+
+.sub-matchup-user {
+  width: 40%;
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 1 auto;
+  justify-content: left;
+  align-items: start;
+  font-size: 1.2vh;
+  padding-left: 5%;
+}
+
+.sub-matchup-opp {
+  width: 40%;
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 1 auto;
+  justify-content: right;
+  align-items: end;
+  font-size: 1.2vh;
+  padding-right: 5%;
+}
+
+.sub-matchup-center {
+  width: 10%;
+  align-items: center;
+}
+
+.sub-matchup-center {
+  width: 10%;
+  align-items: center;
+}
+
+.sub-matchup-blurbs {
+  width: 80%;
+  align-items: center;
 }

@@ -23,7 +23,7 @@ export const HomePage = () => {
                             className="search-button" 
                             onClick={navigateSumSearch}
                         >
-                            <img src={search} alt="Search" width='30' height='30' />
+                            <img src={search} alt="Search" />
                         </button>
                     </div>
                 </div>

@@ -21,8 +21,7 @@ def GetInfoFromLiveMatch(user_id):
     live_match_url = "https://na1.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/" + user_id + "?api_key=" + riotKey
     resp = requests.get(live_match_url)
     match_info = resp.json()
-    #delete this print after
-    print(match_info)
+    
     # Gets the puuid of all the players in the game
     players_puuid = match_info['participants']
     return players_puuid
@@ -43,7 +42,7 @@ def lookupSummoner(puuid):
 
 # Takes in a puuid and gets the user's match history
 def MatchHistory(puuid):
-    match_history_url = "https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/" + puuid + "/ids?start=0&count=20" + "&api_key=" + riotKey
+    match_history_url = "https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/" + puuid + "/ids?start=0&count=3" + "&api_key=" + riotKey
     resp = requests.get(match_history_url)
     match_list = resp.json()
     return match_list

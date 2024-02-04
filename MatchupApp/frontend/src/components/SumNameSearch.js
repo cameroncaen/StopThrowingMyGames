@@ -25,7 +25,7 @@ export const SumNameSearch = () => {
     //For invalid riot tags, must have a function to check them and update if the input is valid accordingly
 
     function findMatchup () {
-        
+        setErrorMessage("Fetching your matchup data, sit tight!")
         fetch('/api/gen-stats', requestOptions)
         .then((response) => {
             if(!response.ok){
@@ -80,7 +80,7 @@ export const SumNameSearch = () => {
                             //type="submit"
                             onClick={findMatchup}
                         >
-                            <img src={search} alt="Search" width='30' height='30' />
+                            <img src={search} alt="Search" />
                         </button>
                     </div>
                 </div>
