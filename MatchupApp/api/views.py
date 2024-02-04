@@ -3,6 +3,7 @@ from rest_framework import generics, status
 from .serializers import MatchSerializer, PopulateMatchupInfoSerializer
 from .riot_api import GetUserInfo, GetInfoFromLiveMatch, lookupAccount, lookupSummoner
 from .get_stats import pullMatchData
+from .blurbs import genBlurbs
 from .models import Match
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -128,6 +129,9 @@ def generateInfo(userData, players):
         "UserOpp": {
 
         },
+        "UserLaneBlurbs": {
+
+        },
         "AltLane1": {
 
         },
@@ -169,14 +173,14 @@ def generateInfo(userData, players):
     count = 1
     for lane in allRoles:
         if lane == userRole:
-            print('Start')
             for key in roles[enemy]:
                 if roles[enemy][key]['role'] == lane:
                     userOppPuuid = key
                     break
             allMatchData['User']['stats'] = pullMatchData(userPuuid, lane, roles[ally][userPuuid]['champId'], 2)
             allMatchData['UserOpp'] = pullMatchData(userOppPuuid, lane, roles[enemy][userOppPuuid]['champId'], 1)
-            print('End')
+            allMatchData['UserLaneBlurbs'] = genBlurbs(allMatchData['User']['stats'], allMatchData['UserOpp']['stats'], lane)
+            print( allMatchData['UserLaneBlurbs'])
         else:
             for key in roles[ally]:
                 if roles[ally][key]['role'] == lane:
@@ -188,8 +192,9 @@ def generateInfo(userData, players):
                     oppPuuid = key
                     allMatchData['AltLaneOpp'+str(count)] = pullMatchData(oppPuuid, lane, roles[enemy][key]['champId'], 0)
                     break
+            allMatchData['AltLane'+str(count)+'Blurbs'] = genBlurbs(allMatchData['AltLane'+str(count)]['stats'], allMatchData['AltLaneOpp'+str(count)]['stats'], lane)
+            print( allMatchData['AltLane'+str(count)+'Blurbs'])
             count += 1
-
 
     return allMatchData
 
@@ -264,10 +269,6 @@ class PopulateMatchupInfo(APIView):
                 match.ally1_KP = matchInfo['AltLane1']['stats']['KP']
                 match.ally1_GPM = matchInfo['AltLane1']['stats']['GPM']
                 match.ally1_DPM =matchInfo['AltLane1']['stats']['DPM']
-
-                print( matchInfo['AltLane1']['stats']['wardsPlaced'])
-                print( matchInfo['AltLane1']['stats']['wardsKilled'])
-                print( matchInfo['AltLaneOpp1']['username'])
                 match.save(update_fields=['ally1_username', 'ally1_tag', 'ally1_sumLevel','ally1_role', 'ally1_kills', 'ally1_deaths', 'ally1_assists',
                                           'ally1_wardsPlaced', 'ally1_wardsKilled', 'ally1_VWBought', 'ally1_KP', 'ally1_GPM', 'ally1_DPM'])
                 #Enemy1 Model Fields
@@ -383,8 +384,35 @@ class PopulateMatchupInfo(APIView):
                 match.save(update_fields=['enemy4_username', 'enemy4_tag', 'enemy4_sumLevel','enemy4_role', 'enemy4_kills', 'enemy4_deaths', 'enemy4_assists',
                                           'enemy4_wardsPlaced', 'enemy4_wardsKilled', 'enemy4_VWBought', 'enemy4_KP', 'enemy4_GPM', 'enemy4_DPM'])
 
+                match.user_blurb1 = matchInfo["UserLaneBlurbs"]['blurb1']
+                match.user_blurb2 = matchInfo["UserLaneBlurbs"]['blurb2']
+                match.user_blurb3 = matchInfo["UserLaneBlurbs"]['blurb3']
+                match.user_blurb4 = matchInfo["UserLaneBlurbs"]['blurb4']
+                match.save(update_fields=['user_blurb1', 'user_blurb2', 'user_blurb3', 'user_blurb4'])
+                print(match.user_blurb3)
+                match.ally1_blurb1 = matchInfo["AltLane1Blurbs"]['blurb1']
+                match.ally1_blurb2 = matchInfo["AltLane1Blurbs"]['blurb2']
+                match.ally1_blurb3 = matchInfo["AltLane1Blurbs"]['blurb3']
+                match.ally1_blurb4 = matchInfo["AltLane1Blurbs"]['blurb4']
+                match.save(update_fields=['ally1_blurb1', 'ally1_blurb2', 'ally1_blurb3', 'ally1_blurb4'])
 
+                match.ally2_blurb1 = matchInfo["AltLane2Blurbs"]['blurb1']
+                match.ally2_blurb2 = matchInfo["AltLane2Blurbs"]['blurb2']
+                match.ally2_blurb3 = matchInfo["AltLane2Blurbs"]['blurb3']
+                match.ally2_blurb4 = matchInfo["AltLane2Blurbs"]['blurb4']
+                match.save(update_fields=['ally2_blurb1', 'ally2_blurb2', 'ally2_blurb3', 'ally2_blurb4'])
+                
+                match.ally3_blurb1 = matchInfo["AltLane3Blurbs"]['blurb1']
+                match.ally3_blurb2 = matchInfo["AltLane3Blurbs"]['blurb2']
+                match.ally3_blurb3 = matchInfo["AltLane3Blurbs"]['blurb3']
+                match.ally3_blurb4 = matchInfo["AltLane3Blurbs"]['blurb4']
+                match.save(update_fields=['ally3_blurb1', 'ally3_blurb2', 'ally3_blurb3', 'ally3_blurb4'])
 
+                match.ally4_blurb1 = matchInfo["AltLane4Blurbs"]['blurb1']
+                match.ally4_blurb2 = matchInfo["AltLane4Blurbs"]['blurb2']
+                match.ally4_blurb3 = matchInfo["AltLane4Blurbs"]['blurb3']
+                match.ally4_blurb4 = matchInfo["AltLane4Blurbs"]['blurb4']
+                match.save(update_fields=['ally4_blurb1', 'ally4_blurb2', 'ally4_blurb3', 'ally4_blurb4'])
                 
                 self.request.session['match_code'] = match.code
                  # .data returns the json formatted data from the room object in question coming

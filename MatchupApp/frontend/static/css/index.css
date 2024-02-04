@@ -232,6 +232,10 @@ input {
   width: 20%;
   align-items: center;
 }
+.main-matchup-blurbs {
+  width: 70%;
+  align-items: center;
+}
 
 .sub-matchup-row {
   display: flex;
@@ -275,5 +279,15 @@ input {
 
 .sub-matchup-center {
   width: 10%;
+  align-items: center;
+}
+
+.sub-matchup-center {
+  width: 10%;
+  align-items: center;
+}
+
+.sub-matchup-blurbs {
+  width: 80%;
   align-items: center;
 }

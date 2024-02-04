@@ -48,7 +48,6 @@ def pullMatchData(puuid, role, champ, user):
 
     }
     stats = ret_dict['stats']
-
     #Stores role specific data to be used to generate blurbs and role-specific stas
     #if role == 'TOP':
     matches = MatchHistory(puuid)
@@ -60,7 +59,7 @@ def pullMatchData(puuid, role, champ, user):
         ret_dict['tagline'] = acct['tagLine']
         ret_dict['sumLvl'] = sum['summonerLevel']
     count = 0
-    countInRole = 1
+    countInRole = 0
     for match_id in matches:
         match = MatchData(match_id)
         participants = match['info']['participants']
@@ -79,53 +78,68 @@ def pullMatchData(puuid, role, champ, user):
         stats['wardsPlaced'] += round(Decimal(player['wardsPlaced'] / numGames), 1)
         stats['wardsKilled'] += round(Decimal(player['wardsKilled'] / numGames), 1)
         stats['visionWardsBoughtInGame'] += round(Decimal(player['visionWardsBoughtInGame'] / numGames), 1)
-        stats['KP'] += round(Decimal(chals['killParticipation'] / numGames), 2)
+        # KillParticipation does not show for all users oddly enough so this is a failsafe for that even
+        try:
+            stats['KP'] += round(Decimal(chals['killParticipation'] / numGames), 2)
+        except:
+            stats['KP'] += round(Decimal(stats['KP'] / numGames), 2)
         stats['GPM'] += round(Decimal(chals['goldPerMinute'] / numGames), 2)
         stats['DPM'] += round(Decimal(chals['damagePerMinute'] / numGames), 2)
 
         # Checks if player plays their champ a lot
-        if user != 0 and player['championId'] == champ:
-            stats['OTP'] += 1
+        if player['championId'] == champ:
+            stats['OTP'] += 1/numGames
 
 
         if player['teamPosition'] == role:
-            stats['inRole'] += 1
+            countInRole += 1
             stats['SSD'] += round(Decimal(chals['skillshotsDodged'] / countInRole), 1)
             
-            if role == 'TOP':
-                stats['soloKills'] += round(Decimal(chals['soloKills'] / countInRole), 1)
-                stats['firstTurret'] += round(Decimal(chals['firstTurretKilled'] / countInRole), 1)
-                stats['turretPlates'] += round(Decimal(chals['turretPlatesTaken'] / countInRole), 1)
-                stats['csADV'] += round(Decimal(chals['maxCsAdvantageOnLaneOpponent'] / countInRole), 1)
+        if player['teamPosition'] == 'TOP':
+            stats['soloKills'] += round(Decimal(chals['soloKills'] / numGames), 1)
+            stats['firstTurret'] += round(Decimal(chals['firstTurretKilled'] / numGames), 1)
+            stats['turretPlates'] += round(Decimal(chals['turretPlatesTaken'] / numGames), 1)
+            try:
+                stats['csADV'] += round(Decimal(chals['maxCsAdvantageOnLaneOpponent'] / numGames), 2)
+            except:
+                stats['csADV'] += round(Decimal(stats['csADV'] / numGames), 2)
+            
+        elif player['teamPosition'] == 'JUNGLE':
+            stats['buffsStolen'] += round(Decimal(chals['buffsStolen'] / numGames), 1)
+            stats['enemyJungleMonsterKills'] += round(Decimal(chals['enemyJungleMonsterKills'] / numGames), 1)
+            stats['jgEarlyKills'] += round(Decimal(chals['junglerKillsEarlyJungle'] / numGames), 1)
+            try:
+                stats['csADV'] += round(Decimal(chals['maxCsAdvantageOnLaneOpponent'] / numGames), 2)
+            except:
+                stats['csADV'] += round(Decimal(stats['csADV'] / numGames), 2)
 
-                
-            elif role == 'JUNGLE':
-                stats['buffsStolen'] += round(Decimal(chals['buffsStolen'] / countInRole), 1)
-                stats['enemyJungleMonsterKills'] += round(Decimal(chals['enemyJungleMonsterKills'] / countInRole), 1)
-                stats['jgEarlyKills'] += round(Decimal(chals['junglerKillsEarlyJungle'] / countInRole), 1)
-                stats['csADV'] += round(Decimal(chals['maxCsAdvantageOnLaneOpponent'] / countInRole), 1)
+            
+        elif player['teamPosition'] == 'MIDDLE':
+            stats['soloKills'] += round(Decimal(chals['soloKills'] / numGames), 1)
+            stats['firstTurret'] += round(Decimal(chals['firstTurretKilled'] / numGames), 1)
+            stats['turretPlates'] += round(Decimal(chals['turretPlatesTaken'] / numGames), 1)
+            try:
+                stats['csADV'] += round(Decimal(chals['maxCsAdvantageOnLaneOpponent'] / numGames), 2)
+            except:
+                stats['csADV'] += round(Decimal(stats['csADV'] / numGames), 2)
 
-                
-            elif role == 'MIDDLE':
-                stats['soloKills'] += round(Decimal(chals['soloKills'] / countInRole), 1)
-                stats['firstTurret'] += round(Decimal(chals['firstTurretKilled'] / countInRole), 1)
-                stats['turretPlates'] += round(Decimal(chals['turretPlatesTaken'] / countInRole), 1)
-                stats['csADV'] += round(Decimal(chals['maxCsAdvantageOnLaneOpponent'] / countInRole), 1)
+        elif player['teamPosition'] == 'BOTTOM':
+            stats['soloKills'] += round(Decimal(chals['soloKills'] / numGames), 1)
+            stats['firstTurret'] += round(Decimal(chals['firstTurretKilled'] / numGames), 1)
+            stats['turretPlates'] += round(Decimal(chals['turretPlatesTaken'] / numGames), 1)
+            try:
+                stats['csADV'] += round(Decimal(chals['maxCsAdvantageOnLaneOpponent'] / numGames), 2)
+            except:
+                stats['csADV'] += round(Decimal(stats['csADV'] / numGames), 2)
 
-            elif role == 'BOTTOM':
-                stats['soloKills'] += round(Decimal(chals['soloKills'] / countInRole), 1)
-                stats['firstTurret'] += round(Decimal(chals['firstTurretKilled'] / countInRole), 1)
-                stats['turretPlates'] += round(Decimal(chals['turretPlatesTaken'] / countInRole), 1)
-                stats['csADV'] += round(Decimal(chals['maxCsAdvantageOnLaneOpponent'] / countInRole), 1)
+        else:
+            if chals['completeSupportQuestInTime'] == True:
+                stats['questOT'] += 1/numGames
+            stats['saveAllyFromDeath'] += round(Decimal(chals['saveAllyFromDeath'] / numGames), 1)
+            stats['landSS'] += round(Decimal(chals['landSkillShotsEarlyGame'] / numGames), 1)
 
-
-            else:
-                if chals['completeSupportQuestInTime'] == True:
-                    stats['questOT'] += 1
-                stats['saveAllyFromDeath'] += round(Decimal(chals['saveAllyFromDeath'] / countInRole), 1)
-                stats['landSS'] += round(Decimal(chals['landSkillShotsEarlyGame'] / countInRole), 1)
-                
-            countInRole += 1
+    stats['inRole'] = countInRole      
+    stats['KP'] = int(100* stats['KP'])
     if user != 2:
         return ret_dict
     else:

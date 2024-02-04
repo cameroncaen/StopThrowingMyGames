@@ -48,6 +48,10 @@ class Match(models.Model):
     opp_GPM = models.CharField(max_length=4, default = 0)
     opp_DPM = models.CharField(max_length=4, default = 0)
 
+    user_blurb1 = models.CharField(max_length=85, default="")
+    user_blurb2 = models.CharField(max_length=85, default="")
+    user_blurb3 = models.CharField(max_length=85, default="")
+    user_blurb4 = models.CharField(max_length=85, default="")
     # -------- Ally and enemy 1 Matchup fields ----------------------------------
     #start of Ally1's account inormation/stats
     ally1_username = models.CharField(max_length=16, default="")
@@ -79,6 +83,10 @@ class Match(models.Model):
     enemy1_GPM = models.CharField(max_length=4, default = 0)
     enemy1_DPM = models.CharField(max_length=4, default = 0)
 
+    ally1_blurb1 = models.CharField(max_length=85, default="")
+    ally1_blurb2 = models.CharField(max_length=85, default="")
+    ally1_blurb3 = models.CharField(max_length=85, default="")
+    ally1_blurb4 = models.CharField(max_length=85, default="")
     # -------- Ally and enemy 2 Matchup fields ----------------------------------
     #start of Ally2's account inormation/stats
     ally2_username = models.CharField(max_length=16, default="")
@@ -111,8 +119,10 @@ class Match(models.Model):
     enemy2_GPM = models.CharField(max_length=4, default = 0)
     enemy2_DPM = models.CharField(max_length=4, default = 0)
 
-    
-
+    ally2_blurb1 = models.CharField(max_length=85, default="")
+    ally2_blurb2 = models.CharField(max_length=85, default="")
+    ally2_blurb3 = models.CharField(max_length=85, default="")
+    ally2_blurb4 = models.CharField(max_length=85, default="")
     # -------- Ally and enemy 3 Matchup fields ----------------------------------
     #start of Ally3's account inormation/stats
     ally3_username = models.CharField(max_length=16, default="")
@@ -144,7 +154,10 @@ class Match(models.Model):
     enemy3_GPM = models.CharField(max_length=4, default = 0)
     enemy3_DPM = models.CharField(max_length=4, default = 0)
 
-
+    ally3_blurb1 = models.CharField(max_length=85, default="")
+    ally3_blurb2 = models.CharField(max_length=85, default="")
+    ally3_blurb3 = models.CharField(max_length=85, default="")
+    ally3_blurb4 = models.CharField(max_length=85, default="")
     # -------- Ally and enemy 4 Matchup fields ----------------------------------
     #start of Ally4's account inormation/stats
     ally4_username = models.CharField(max_length=16, default="")
@@ -176,3 +189,7 @@ class Match(models.Model):
     enemy4_GPM = models.CharField(max_length=4, default = 0)
     enemy4_DPM = models.CharField(max_length=4, default = 0)
 
+    ally4_blurb1 = models.CharField(max_length=85, default="")
+    ally4_blurb2 = models.CharField(max_length=85, default="")
+    ally4_blurb3 = models.CharField(max_length=85, default="")
+    ally4_blurb4 = models.CharField(max_length=85, default="")

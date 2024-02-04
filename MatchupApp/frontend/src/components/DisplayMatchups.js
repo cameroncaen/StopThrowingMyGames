@@ -154,6 +154,38 @@ export const DisplayMatchups = () => {
     const [enemy4GPM, setEnemy4GPM] = useState('');
     const [enemy4DPM, setEnemy4DPM] = useState('');
 
+    // Blurb state fields
+  
+    const [userBlurb1, setUserBlurb1] = useState('');
+    
+    const [userBlurb2, setUserBlurb2] = useState('');
+    
+    const [userBlurb3, setUserBlurb3] = useState('');
+    
+    const [userBlurb4, setUserBlurb4] = useState('');
+
+
+    const [ally1Blurb1, setAlly1Blurb1] = useState('');
+    const [ally1Blurb2, setAlly1Blurb2] = useState('');
+    const [ally1Blurb3, setAlly1Blurb3] = useState('');
+    const [ally1Blurb4, setAlly1Blurb4] = useState('');
+
+    const [ally2Blurb1, setAlly2Blurb1] = useState('');
+    const [ally2Blurb2, setAlly2Blurb2] = useState('');
+    const [ally2Blurb3, setAlly2Blurb3] = useState('');
+    const [ally2Blurb4, setAlly2Blurb4] = useState('');
+
+    const [ally3Blurb1, setAlly3Blurb1] = useState('');
+    const [ally3Blurb2, setAlly3Blurb2] = useState('');
+    const [ally3Blurb3, setAlly3Blurb3] = useState('');
+    const [ally3Blurb4, setAlly3Blurb4] = useState('');
+
+    const [ally4Blurb1, setAlly4Blurb1] = useState('');
+    const [ally4Blurb2, setAlly4Blurb2] = useState('');
+    const [ally4Blurb3, setAlly4Blurb3] = useState('');
+    const [ally4Blurb4, setAlly4Blurb4] = useState('');
+
+
 
     //console.log(matchCode.sessionCode);
     const getMatchInfo = () => {
@@ -202,7 +234,6 @@ export const DisplayMatchups = () => {
             setAlly1GPM(data.ally1_GPM)
             setAlly1DPM(data.ally1_DPM)
             
-            console.log(data.enemy1_username)
             setEnemy1User(data.enemy1_username)
             setEnemy1Tag(data.enemy1_tag)
             setEnemy1Lvl(data.enemy1_sumLevel)
@@ -300,6 +331,33 @@ export const DisplayMatchups = () => {
             setEnemy4KP(data.enemy4_KP)
             setEnemy4GPM(data.enemy4_GPM)
             setEnemy4DPM(data.enemy4_DPM)
+
+            setUserBlurb1(data.user_blurb1)
+           
+            setUserBlurb2(data.user_blurb2)
+            
+            setUserBlurb3(data.user_blurb3)
+            setUserBlurb4(data.user_blurb4)
+
+            setAlly1Blurb1(data.ally1_blurb1)
+            setAlly1Blurb2(data.ally1_blurb2)
+            setAlly1Blurb3(data.ally1_blurb3)
+            setAlly1Blurb4(data.ally1_blurb4)
+
+            setAlly2Blurb1(data.ally2_blurb1)
+            setAlly2Blurb2(data.ally2_blurb2)
+            setAlly2Blurb3(data.ally2_blurb3)
+            setAlly2Blurb4(data.ally2_blurb4)
+
+            setAlly3Blurb1(data.ally3_blurb1)
+            setAlly3Blurb2(data.ally3_blurb2)
+            setAlly3Blurb3(data.ally3_blurb3)
+            setAlly3Blurb4(data.ally3_blurb4)
+
+            setAlly4Blurb1(data.ally4_blurb1)
+            setAlly4Blurb2(data.ally4_blurb2)
+            setAlly4Blurb3(data.ally4_blurb3)
+            setAlly4Blurb4(data.ally4_blurb4)
         }
        )
     }
@@ -320,20 +378,33 @@ export const DisplayMatchups = () => {
                         <h1>KDA: {hostKills}/{hostDeaths}/{hostAssists}</h1>
                         <h1>Wards Places/Wards Killed: {hostWardsPlaced}/{hostWardsKilled}</h1>
                         <h1>Control Wards Bought: {hostVWBought}</h1>
-                        <h1>Kill Participation: {hostKP}</h1>
+                        <h1>Kill Participation: {hostKP}%</h1>
                         <h1>Gold Per Minute: {hostGPM}</h1>
                         <h1>Damage Per Minute: {hostDPM}</h1>
                     </div>
                     <div className="main-matchup-center">
                         <h1>{hostRole}</h1>
+                        <h1>*</h1>
+                        <h1>*</h1>
+                        <h1>*</h1>
+                        <h1>*</h1>
+                        <h1>*</h1>
+                        <h1>*</h1>
+                        <h1>*</h1>
+                        <h1> {userBlurb1}</h1>
+                        <h1> {userBlurb2}</h1>
+                        <h1> {userBlurb3}</h1>
+                        <h1> {userBlurb4}</h1>
+                        
+                        
                     </div>
                     <div className="main-matchup-opp">
-                        <h1>User: {oppUser}#{oppTag}</h1>
-                        <h1>Lvl: {oppLvl}</h1>
-                        <h1>KDA: {oppKills}/{oppDeaths}/{oppAssists}</h1>
+                        <h1>{oppUser}#{oppTag} :User</h1>
+                        <h1>{oppLvl} :Lvl</h1>
+                        <h1>{oppKills}/{oppDeaths}/{oppAssists} :KDA</h1>
                         <h1>{oppWardsPlaced}/{oppWardsKilled} :Wards Places/Wards Killed</h1>
                         <h1>{oppVWBought} :Control Wards Bought</h1>
-                        <h1>{oppKP} :Kill Participation</h1>
+                        <h1>{oppKP}% :Kill Participation</h1>
                         <h1>{oppGPM} :Gold Per Minute</h1>
                         <h1>{oppDPM} :Damage Per Minute</h1>
                     </div>
@@ -347,20 +418,35 @@ export const DisplayMatchups = () => {
                             <h1>KDA: {ally1Kills}/{ally1Deaths}/{ally1Assists}</h1>
                             <h1>Wards Places/Wards Killed: {ally1WardsPlaced}/{ally1WardsKilled}</h1>
                             <h1>Control Wards Bought: {ally1VWBought}</h1>
-                            <h1>Kill Participation: {ally1KP}</h1>
+                            <h1>Kill Participation: {ally1KP}%</h1>
                             <h1>Gold Per Minute: {ally1GPM}</h1>
                             <h1>Damage Per Minute: {ally1DPM}</h1>
                         </div>
                         <div className="sub-matchup-center">
                             <h1>{ally1Role}</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1> {userBlurb1}</h1>
+                            <h1> {userBlurb2}</h1>
+                            <h1> {userBlurb3}</h1>
+                            <h1> {userBlurb4}</h1>
                         </div>
                         <div className="sub-matchup-opp">
-                            <h1>User: {enemy1User}#{enemy1Tag}</h1>
-                            <h1>Lvl: {enemy1Lvl}</h1>
-                            <h1>KDA: {enemy1Kills}/{enemy1Deaths}/{enemy1Assists}</h1>
+                            <h1>{enemy1User}#{enemy1Tag} :User</h1>
+                            <h1>{enemy1Lvl} :Lvl</h1>
+                            <h1>{enemy1Kills}/{enemy1Deaths}/{enemy1Assists} :KDA</h1>
                             <h1>{enemy1WardsPlaced}/{enemy1WardsKilled} :Wards Places/Wards Killed</h1>
                             <h1>{enemy1VWBought} :Control Wards Bought</h1>
-                            <h1>{enemy1KP} :Kill Participation</h1>
+                            <h1>{enemy1KP}% :Kill Participation</h1>
                             <h1>{enemy1GPM} :Gold Per Minute</h1>
                             <h1>{enemy1DPM} :Damage Per Minute</h1>
                         </div>
@@ -373,20 +459,35 @@ export const DisplayMatchups = () => {
                             <h1>KDA: {ally2Kills}/{ally2Deaths}/{ally2Assists}</h1>
                             <h1>Wards Places/Wards Killed: {ally2WardsPlaced}/{ally2WardsKilled}</h1>
                             <h1>Control Wards Bought: {ally2VWBought}</h1>
-                            <h1>Kill Participation: {ally2KP}</h1>
+                            <h1>Kill Participation: {ally2KP}%</h1>
                             <h1>Gold Per Minute: {ally2GPM}</h1>
                             <h1>Damage Per Minute: {ally2DPM}</h1>
                         </div>
                         <div className="sub-matchup-center">
                             <h1>{ally2Role}</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1> {userBlurb1}</h1>
+                            <h1> {userBlurb2}</h1>
+                            <h1> {userBlurb3}</h1>
+                            <h1> {userBlurb4}</h1>
                         </div>
                         <div className="sub-matchup-opp">
-                            <h1>User: {enemy2User}#{enemy2Tag}</h1>
-                            <h1>Lvl: {enemy2Lvl}</h1>
-                            <h1>KDA: {enemy2Kills}/{enemy2Deaths}/{enemy2Assists}</h1>
+                            <h1>{enemy2User}#{enemy2Tag} :User</h1>
+                            <h1>{enemy2Lvl} :Lvl</h1>
+                            <h1>{enemy2Kills}/{enemy2Deaths}/{enemy2Assists} :KDA</h1>
                             <h1>{enemy2WardsPlaced}/{enemy2WardsKilled} :Wards Places/Wards Killed</h1>
                             <h1>{enemy2VWBought} :Control Wards Bought</h1>
-                            <h1>{enemy2KP} :Kill Participation</h1>
+                            <h1>{enemy2KP}% :Kill Participation</h1>
                             <h1>{enemy2GPM} :Gold Per Minute</h1>
                             <h1>{enemy2DPM} :Damage Per Minute</h1>
                         </div>
@@ -401,20 +502,35 @@ export const DisplayMatchups = () => {
                             <h1>KDA: {ally3Kills}/{ally3Deaths}/{ally3Assists}</h1>
                             <h1>Wards Places/Wards Killed: {ally3WardsPlaced}/{ally3WardsKilled}</h1>
                             <h1>Control Wards Bought: {ally3VWBought}</h1>
-                            <h1>Kill Participation: {ally3KP}</h1>
+                            <h1>Kill Participation: {ally3KP}%</h1>
                             <h1>Gold Per Minute: {ally3GPM}</h1>
                             <h1>Damage Per Minute: {ally3DPM}</h1>
                         </div>
                         <div className="sub-matchup-center">
                             <h1>{ally3Role}</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1> {userBlurb1}</h1>
+                            <h1> {userBlurb2}</h1>
+                            <h1> {userBlurb3}</h1>
+                            <h1> {userBlurb4}</h1>
                         </div>
                         <div className="sub-matchup-opp">
-                            <h1>User: {enemy3User}#{enemy3Tag}</h1>
-                            <h1>Lvl: {enemy3Lvl}</h1>
-                            <h1>KDA: {enemy3Kills}/{enemy3Deaths}/{enemy3Assists}</h1>
+                            <h1>{enemy3User}#{enemy3Tag} :User</h1>
+                            <h1>{enemy3Lvl} :Lvl</h1>
+                            <h1>{enemy3Kills}/{enemy3Deaths}/{enemy3Assists} :KDA</h1>
                             <h1>{enemy3WardsPlaced}/{enemy3WardsKilled} :Wards Places/Wards Killed</h1>
                             <h1>{enemy3VWBought} :Control Wards Bought</h1>
-                            <h1>{enemy3KP} :Kill Participation</h1>
+                            <h1>{enemy3KP}% :Kill Participation</h1>
                             <h1>{enemy3GPM} :Gold Per Minute</h1>
                             <h1>{enemy3DPM} :Damage Per Minute</h1>
                         </div>
@@ -427,20 +543,35 @@ export const DisplayMatchups = () => {
                             <h1>KDA: {ally4Kills}/{ally4Deaths}/{ally4Assists}</h1>
                             <h1>Wards Places/Wards Killed: {ally4WardsPlaced}/{ally4WardsKilled}</h1>
                             <h1>Control Wards Bought: {ally4VWBought}</h1>
-                            <h1>Kill Participation: {ally4KP}</h1>
+                            <h1>Kill Participation: {ally4KP}%</h1>
                             <h1>Gold Per Minute: {ally4GPM}</h1>
                             <h1>Damage Per Minute: {ally4DPM}</h1>
                         </div>
                         <div className="sub-matchup-center">
                             <h1>{ally4Role}</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1>*</h1>
+                            <h1> {userBlurb1}</h1>
+                            <h1> {userBlurb2}</h1>
+                            <h1> {userBlurb3}</h1>
+                            <h1> {userBlurb4}</h1>
                         </div>
                         <div className="sub-matchup-opp">
-                            <h1>User: {enemy4User}#{enemy4Tag}</h1>
-                            <h1>Lvl: {enemy4Lvl}</h1>
-                            <h1>KDA: {enemy4Kills}/{enemy4Deaths}/{enemy4Assists}</h1>
+                            <h1>{enemy4User}#{enemy4Tag} :User</h1>
+                            <h1>{enemy4Lvl} :Lvl</h1>
+                            <h1>{enemy4Kills}/{enemy4Deaths}/{enemy4Assists} :KDA</h1>
                             <h1>{enemy4WardsPlaced}/{enemy4WardsKilled} :Wards Places/Wards Killed</h1>
                             <h1>{enemy4VWBought} :Control Wards Bought</h1>
-                            <h1>{enemy4KP} :Kill Participation</h1>
+                            <h1>{enemy4KP}% :Kill Participation</h1>
                             <h1>{enemy4GPM} :Gold Per Minute</h1>
                             <h1>{enemy4DPM} :Damage Per Minute</h1>
                         </div>
